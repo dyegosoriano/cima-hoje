@@ -15,8 +15,8 @@ export default createGlobalStyle`
     color: #424242;
 
     display: flex;
+    flex-direction:column;
     justify-content: center;
-    align-items: center;
   }
 
   body, input, button, textarea {
