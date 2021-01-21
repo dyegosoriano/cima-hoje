@@ -12,7 +12,7 @@ export default createGlobalStyle`
     height:100vh;
 
     background: #EBF2F5;
-    color: #FFF;
+    color: #212121;
 
     display:flex;
     justify-content:center;
