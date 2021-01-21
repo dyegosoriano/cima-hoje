@@ -8,15 +8,15 @@ export default createGlobalStyle`
   }
 
   body {
-    width:100vw;
-    height:100vh;
+    width: 100vw;
+    height: 100vh;
 
-    background: #EBF2F5;
-    color: #212121;
+    background: linear-gradient(180deg, #0091ea 30%, #84ffff 70%);
+    color: #424242;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   body, input, button, textarea {
