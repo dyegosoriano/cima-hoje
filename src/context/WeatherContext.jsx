@@ -1,4 +1,6 @@
 import React, { useState, createContext } from 'react'
+import pt from 'date-fns/locale/pt'
+import { format } from 'date-fns'
 
 export const WeatherContext = createContext()
 
@@ -21,13 +23,13 @@ export default function WeatherContextProvider({ children }) {
       } = response
 
       const days = list.map(item => ({
+        time: format(new Date(item.dt_txt), 'PPPP - kk:mm', { locale: pt }),
         description: item.weather[0].description,
         humidity: Math.round(item.main.humidity),
         tempMax: Math.round(item.main.temp_max),
         tempMin: Math.round(item.main.temp_min),
         temp: Math.round(item.main.temp),
-        icon: item.weather[0].icon,
-        time: item.dt
+        icon: item.weather[0].icon
       }))
 
       setCityWeather({ name, days })
