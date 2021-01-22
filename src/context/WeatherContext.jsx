@@ -10,12 +10,12 @@ export default function WeatherContextProvider({ children }) {
   async function addCity(city) {
     const uri = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&lang=pt_br&appid=${process.env.REACT_APP_KEY_OPEN_WEATHER}`
 
-    if (!city) return
-
     try {
       const response = await fetch(uri)
         .then(response => response.json())
         .then(response => response)
+
+      if (response.cod === '404') return 404
 
       const {
         city: { name },
@@ -35,8 +35,8 @@ export default function WeatherContextProvider({ children }) {
       setCityWeather({ name, days })
 
       return response
-    } catch (err) {
-      console.log(`error.message >>> ${err.message} <<<`)
+    } catch (error) {
+      console.log(`error.message >>> ${error.message} <<<`)
     }
   }
 

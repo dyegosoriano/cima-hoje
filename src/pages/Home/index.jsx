@@ -14,9 +14,11 @@ export default function Home() {
   const history = useHistory()
 
   async function handleSubmit() {
+    if (!city) return
+
     const response = await addCity(city)
 
-    if (!response) {
+    if (response === 404) {
       setError(true)
       return
     }
@@ -45,7 +47,7 @@ export default function Home() {
         onClick={handleSubmit}
         variant="contained"
       >
-        Buscar cidade
+        Buscar
       </Button>
     </FormStyled>
   )
