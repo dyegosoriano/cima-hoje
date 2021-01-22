@@ -1,31 +1,27 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, TextField } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
+
+import { WeatherContext } from '../../context/WeatherContext'
 
 import { FormStyled } from './styles'
 
 export default function Home() {
-  const [erro, setErro] = useState(false)
+  const [error, setError] = useState(false)
   const [city, setCity] = useState('')
 
+  const { addCity } = useContext(WeatherContext)
+  const history = useHistory()
+
   async function handleSubmit() {
-    if (!city) return
+    const response = await addCity(city)
 
-    try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city},br&appid=${process.env.REACT_APP_KEY_OPEN_WEATHER}`
-      )
-        .then(response => response.json())
-        .then(response => response)
-
-      if (response.cod === '404') {
-        setErro(true)
-        return
-      }
-
-      console.log(response)
-    } catch (error) {
-      console.log(`error.message >>> ${error.message} <<<`)
+    if (!response) {
+      setError(true)
+      return
     }
+
+    history.push('/city')
   }
 
   return (
@@ -33,14 +29,14 @@ export default function Home() {
       <TextField
         onChange={event => {
           setCity(event.target.value)
-          setErro(false)
+          setError(false)
         }}
         label="Informe a cidade"
         className="text__input"
         value={city}
       />
 
-      {erro && (
+      {error && (
         <span className="msg__error">Você inseriu uma cidade inexistente!</span>
       )}
 

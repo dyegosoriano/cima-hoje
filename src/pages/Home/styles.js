@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const FormStyled = styled.div`
+export const FormStyled = styled.main`
   padding: 16px;
 
   display: flex;
