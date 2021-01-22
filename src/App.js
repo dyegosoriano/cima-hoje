@@ -1,12 +1,20 @@
 import React from 'react'
 
+import BoxContainer from './components/BoxContainer'
+import Sidebar from './components/Sidebar'
+
 import GlobalStyle from './styles/global'
+import Routes from './routes'
 
 export default function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>Olá mundo!</h1>
+
+      <BoxContainer>
+        <Sidebar />
+        <Routes />
+      </BoxContainer>
     </>
   )
 }
