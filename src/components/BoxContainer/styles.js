@@ -19,5 +19,7 @@ export const Container = styled(Box)`
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
+    margin: 0 auto;
+    height: 100vh;
   }
 `

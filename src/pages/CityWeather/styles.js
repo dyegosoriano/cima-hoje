@@ -75,4 +75,9 @@ export const Container = styled.div`
     justify-content: space-evenly;
     align-items: center;
   }
+
+  @media (max-width: 1024px) {
+    height: 100vh;
+    grid-template-rows: auto auto auto;
+  }
 `

@@ -19,4 +19,8 @@ export const Aside = styled.aside`
     text-align: center;
     padding: 16px;
   }
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `

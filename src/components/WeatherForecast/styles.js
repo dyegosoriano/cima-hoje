@@ -3,6 +3,7 @@ import { List } from '@material-ui/core'
 
 export const Container = styled(List)`
   width: 100%;
+  height: 100%;
   max-height: 350px;
 
   overflow: auto;
