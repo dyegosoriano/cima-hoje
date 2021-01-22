@@ -3,19 +3,34 @@ import React, { useState, createContext } from 'react'
 export const WeatherContext = createContext()
 
 export default function WeatherContextProvider({ children }) {
-  const [cityWeather, setCityWeather] = useState('')
+  const [cityWeather, setCityWeather] = useState({})
 
   async function addCity(city) {
+    const uri = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&lang=pt_br&appid=${process.env.REACT_APP_KEY_OPEN_WEATHER}`
+
     if (!city) return
 
     try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${process.env.REACT_APP_KEY_OPEN_WEATHER}`
-      )
+      const response = await fetch(uri)
         .then(response => response.json())
         .then(response => response)
 
-      setCityWeather(response)
+      const {
+        city: { name },
+        list
+      } = response
+
+      const days = list.map(item => ({
+        description: item.weather[0].description,
+        humidity: Math.round(item.main.humidity),
+        tempMax: Math.round(item.main.temp_max),
+        tempMin: Math.round(item.main.temp_min),
+        temp: Math.round(item.main.temp),
+        icon: item.weather[0].icon,
+        time: item.dt
+      }))
+
+      setCityWeather({ name, days })
 
       return response
     } catch (err) {
