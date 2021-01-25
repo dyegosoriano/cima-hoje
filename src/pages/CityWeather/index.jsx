@@ -1,17 +1,27 @@
 import React, { useContext } from 'react'
+import { ArrowBackIos, Favorite } from '@material-ui/icons'
 import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 
 import WeatherForecast from '../../components/WeatherForecast'
 import { WeatherContext } from '../../context/WeatherContext'
+
 import { Container } from './styles'
 
 export default function CityWeather() {
-  const { cityWeather } = useContext(WeatherContext)
+  const { cityWeather, addFavorite } = useContext(WeatherContext)
   const { goBack } = useHistory()
 
-  const { name, days } = cityWeather
-  const { temp, tempMax, tempMin, humidity, icon, description } = days[0]
+  const {
+    description,
+    humidity,
+    tempMax,
+    tempMin,
+    name,
+    icon,
+    temp,
+    days
+  } = cityWeather
 
   return (
     <Container>
@@ -38,8 +48,20 @@ export default function CityWeather() {
       </main>
 
       <footer>
-        <Button variant="contained" onClick={goBack}>
+        <Button
+          startIcon={<ArrowBackIos />}
+          variant="contained"
+          onClick={goBack}
+        >
           voltar
+        </Button>
+
+        <Button
+          onClick={() => addFavorite(name)}
+          startIcon={<Favorite />}
+          variant="contained"
+        >
+          favoritar
         </Button>
       </footer>
     </Container>

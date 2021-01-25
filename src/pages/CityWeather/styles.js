@@ -74,6 +74,15 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+    button {
+      background: #0091ea;
+      color: #fff;
+
+      &:hover {
+        background: #01579b;
+      }
+    }
   }
 
   @media (max-width: 1024px) {

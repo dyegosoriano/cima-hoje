@@ -1,23 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ArrowBackIos } from '@material-ui/icons'
 import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 
 import CardCityWeather from '../../components/CardCityWeather'
+import { WeatherContext } from '../../context/WeatherContext'
 
 import { Container } from './styles'
 
 export default function Favorites() {
+  const { favoriteCities } = useContext(WeatherContext)
   const { goBack } = useHistory()
-
-  const arrayCities = [
-    'brasilia',
-    'salvador',
-    'sao paulo',
-    'rio de janeiro',
-    'palmas',
-    'goiania',
-    'taguatinga'
-  ]
 
   return (
     <Container>
@@ -26,14 +19,18 @@ export default function Favorites() {
       </header>
 
       <main>
-        {arrayCities &&
-          arrayCities.map(city => (
+        {favoriteCities &&
+          favoriteCities.map(city => (
             <CardCityWeather key={city} nameCity={city} />
           ))}
       </main>
 
       <footer>
-        <Button onClick={goBack} variant="contained">
+        <Button
+          startIcon={<ArrowBackIos />}
+          variant="contained"
+          onClick={goBack}
+        >
           Voltar
         </Button>
       </footer>

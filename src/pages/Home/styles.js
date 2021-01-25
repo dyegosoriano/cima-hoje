@@ -19,13 +19,21 @@ export const FormStyled = styled.main`
     color: #ff1744;
   }
 
-  .handle__button {
-    background: #0091ea;
-    margin-top: 16px;
-    color: #fff;
+  footer {
+    width: 100%;
 
-    &:hover {
-      background: #01579b;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    button {
+      background: #0091ea;
+      margin-top: 16px;
+      color: #fff;
+
+      &:hover {
+        background: #01579b;
+      }
     }
   }
 `

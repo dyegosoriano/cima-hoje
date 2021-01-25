@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import CityWeather from './pages/CityWeather'
+import Favorites from './pages/Favorites'
 import Home from './pages/Home'
 
 export default function Routes() {
@@ -10,6 +11,7 @@ export default function Routes() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/city" component={CityWeather} />
+        <Route path="/favorites" component={Favorites} />
       </Switch>
     </BrowserRouter>
   )
