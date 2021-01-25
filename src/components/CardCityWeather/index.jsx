@@ -26,12 +26,14 @@ export default function CardCityWeather({ nameCity }) {
     <Container>
       <ListItem component="div">
         <ListItemAvatar>
-          <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} />
+          <img src={icon} />
         </ListItemAvatar>
 
         <ListItemText
-          primary={name}
-          secondary={`${description}, ${temp}˚C, umidade de ${humidity}%`}
+          primary={name || 'carregando dados da cidade...'}
+          secondary={`${description || '...'}, ${temp || '0'}˚C, umidade de ${
+            humidity || '0'
+          }%`}
         />
       </ListItem>
 

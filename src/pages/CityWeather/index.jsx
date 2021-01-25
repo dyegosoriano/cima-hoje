@@ -31,7 +31,7 @@ export default function CityWeather() {
         <div className="weather__banner">
           <span>{temp}˚C</span>
 
-          <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} />
+          <img src={icon} />
         </div>
 
         <span className="weather__description">{description}</span>

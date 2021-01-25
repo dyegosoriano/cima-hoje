@@ -19,10 +19,9 @@ export default function Favorites() {
       </header>
 
       <main>
-        {favoriteCities &&
-          favoriteCities.map(city => (
-            <CardCityWeather key={city} nameCity={city} />
-          ))}
+        {favoriteCities.map(city => (
+          <CardCityWeather key={city} nameCity={city} />
+        ))}
       </main>
 
       <footer>

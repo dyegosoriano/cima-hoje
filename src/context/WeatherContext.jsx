@@ -22,13 +22,13 @@ export default function WeatherContextProvider({ children }) {
       const { name } = city
 
       const days = list.map(item => ({
+        icon: `http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`,
         time: format(new Date(item.dt_txt), 'PPPP - kk:mm', { locale: pt }),
         description: item.weather[0].description,
         humidity: Math.round(item.main.humidity),
         tempMax: Math.round(item.main.temp_max),
         tempMin: Math.round(item.main.temp_min),
-        temp: Math.round(item.main.temp),
-        icon: item.weather[0].icon
+        temp: Math.round(item.main.temp)
       }))
 
       const { icon, temp, tempMax, tempMin, humidity, description } = days[0]

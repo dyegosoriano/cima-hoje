@@ -15,9 +15,7 @@ export default function WeatherForecast({ daysForecast }) {
         <li key={day.time}>
           <ListItem component="div">
             <ListItemAvatar>
-              <img
-                src={`http://openweathermap.org/img/wn/${day.icon}@2x.png`}
-              />
+              <img src={day.icon} />
             </ListItemAvatar>
 
             <ListItemText
