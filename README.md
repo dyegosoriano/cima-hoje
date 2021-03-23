@@ -1,5 +1,5 @@
 # Clima Hoje
-[Clima Hoje](https://clima-hoje.netlify.app/) é uma aplicação web desenvolvida utilizando o framework ReactJS com o intuito de concluir o desafio para vaga de desenvolvedor front-end da empresa [iTFLEX](https://github.com/itflex).
+[Clima Hoje](https://climahoje.netlify.app/) é uma aplicação web desenvolvida utilizando o framework ReactJS com o intuito de concluir o desafio para vaga de desenvolvedor front-end da empresa [iTFLEX](https://github.com/itflex).
 
 ## Deploy
 É necessário criar uma conta na [https://openweathermap.org](https://openweathermap.org/appid) e obter uma chave gratuita para poder usar a API.
